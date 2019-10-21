@@ -1,9 +1,14 @@
 import React from "react"
+import {BrowserRouter as Router,Route, Link} from "react-router-dom";
 
-function RegisterComponent() {
+function RegisterComponent(props) {
     return(
         <form>
-            <label> Username:
+            <label> First Name:
+                <input placeholder="userName"/>
+            </label>
+            <br/>
+            <label> Last Name:
                 <input placeholder="userName"/>
             </label>
             <br/>
@@ -16,11 +21,18 @@ function RegisterComponent() {
             </label>
             <br/>
             <label> Student:
-                <input type="radio" name="status" value="student" checked={this.state.status === "student"} onChange={this.handleChange}/>
+                <input type="radio" name="status" value="student" checked={props.isStudent === true} onChange={props.handleChange}/>
             </label>
             <label> Tutor:
-                <input type="radio" name="status" value="tutor"  checked={this.state.status === "tutor"} onChange={this.handleChange}/>
+                <input type="radio" name="status" value="tutor"  checked={props.isStudent === false} onChange={props.handleChange}/>
             </label>
+            <Link to="/">
+                <button>Register</button>
+            </Link>
+            <br/>
+            <Link to="/">
+                <button>Cancel</button>
+            </Link>
 
         </form>
     )
