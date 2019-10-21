@@ -1,5 +1,9 @@
 import React from "react"
 
+function RegisterContainer(){
+
+}
+
 class Register extends React.Component{
     constructor(){
         super()
