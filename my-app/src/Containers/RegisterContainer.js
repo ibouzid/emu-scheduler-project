@@ -11,16 +11,13 @@ function RegisterContainer(){
 
 
     function handleChange(event){
-        (event.target.value === "student") ? this.setState(
-            {status: "student"}
-        ) : this.setState({
-            status: "tutor"
-        })
-        console.log(this.state)
+        setStatus(!isStudent)
     }
-
     return(
-        <RegisterComponent/>
+        <RegisterComponent
+        isStudent={isStudent}
+        handleChange={handleChange}
+        />
     )
 
 

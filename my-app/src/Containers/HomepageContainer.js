@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import User from "../User"
 import HomePageComponent from "../Components/HomePageComponent";
-import {BrowserRouter as Router,Route, NavLink} from "react-router-dom";
+import {BrowserRouter as Router,Route} from "react-router-dom";
 import RegisterContainer from "../Containers/RegisterContainer";
 
 function HomepageContainer(){
@@ -12,7 +12,7 @@ function HomepageContainer(){
     const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(()=> {fetch("https://swapi.co/api/people/1")
-        .then(response => response.json())
+         .then(response => response.json())
         .then(data => setUserInfo(data))}, [])
 
     function handleChange(event){
@@ -25,12 +25,10 @@ function HomepageContainer(){
 
     }
 
-    async function handleClick(event){
-        //await fetch("https://swapi.co/api/people/1")
-            //.then(response => response.json())
-            //.then(data => setUserInfo(data))
+     function handleClick(event){
         if(userName === userInfo.name && password === userInfo.mass){
             setLoggedIn(true)
+            console.log("logged in")
         }
     }
 

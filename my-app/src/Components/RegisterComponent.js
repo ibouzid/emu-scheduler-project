@@ -1,5 +1,5 @@
 import React from "react"
-import {BrowserRouter as Router,Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function RegisterComponent(props) {
     return(
@@ -26,10 +26,14 @@ function RegisterComponent(props) {
             <label> Tutor:
                 <input type="radio" name="status" value="tutor"  checked={props.isStudent === false} onChange={props.handleChange}/>
             </label>
+            <br/>
+            {(props.isStudent) ? <div><select>
+                                        <option>Chemistry</option>
+                                        <option>Biology</option>
+                                        </select><br/></div> : <br/> }
             <Link to="/">
                 <button>Register</button>
             </Link>
-            <br/>
             <Link to="/">
                 <button>Cancel</button>
             </Link>
