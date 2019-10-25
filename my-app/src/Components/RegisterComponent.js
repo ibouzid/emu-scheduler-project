@@ -1,5 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom";
+import data from "../Data"
+import CourseOptionComponent from "./CourseOptionComponent";
 
 function RegisterComponent(props) {
     return(
@@ -28,16 +30,14 @@ function RegisterComponent(props) {
             </label>
             <br/>
             {(props.isStudent) ? <div><select>
-                                        <option>Chemistry</option>
-                                        <option>Biology</option>
+                                    <CourseOptionComponent data ={data}/>
                                         </select><br/></div> : <br/> }
             <Link to="/">
-                <button>Register</button>
+                <button>Submit</button>
             </Link>
             <Link to="/">
                 <button>Cancel</button>
             </Link>
-
         </form>
     )
 }
