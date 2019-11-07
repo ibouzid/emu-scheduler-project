@@ -5,10 +5,14 @@ function RegisterContainer(){
 
     const [firstName, setUserName] = useState("");
     const [lastName, setPassword] = useState("");
-    const [email, setUserInfo] = useState("");
+
     const [password, setLoggedIn] = useState("false");
     const [isStudent, setStatus] = useState(true);
 
+    function handleSubmit(event) {
+
+
+    }
 
     function handleChange(event){
         setStatus(!isStudent)
@@ -17,6 +21,7 @@ function RegisterContainer(){
         <RegisterComponent
         isStudent={isStudent}
         handleChange={handleChange}
+        handleSubmit={handleSubmit}
         />
     )
 

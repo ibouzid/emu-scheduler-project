@@ -29,11 +29,14 @@ function RegisterComponent(props) {
                 <input type="radio" name="status" value="tutor"  checked={props.isStudent === false} onChange={props.handleChange}/>
             </label>
             <br/>
-            {(props.isStudent) ? <div><select>
-                                    <CourseOptionComponent data ={data}/>
-                                        </select><br/></div> : <br/> }
+            {(props.isStudent) ? <div>
+                <label> Courses
+                                    <select>
+                                        <CourseOptionComponent data ={data}/>
+                                    </select></label>
+                            <br/></div> : <br/> }
             <Link to="/">
-                <button>Submit</button>
+                <button onClick={props.handleSubmit}>Submit</button>
             </Link>
             <Link to="/">
                 <button>Cancel</button>

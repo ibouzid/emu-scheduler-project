@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.outerBox{
+  width: 300px;
+  padding:100px;
+  margin: auto auto auto 500px;
+  background-color: aliceblue;
+}
+.Nav{
+  border-bottom: 2px solid green;
+}
+.info-box{
+  padding: 20px;
+  margin:25px;
+  border: 2px solid green;
+  display: grid;
+}
+.appointment-button{
+  margin:auto;
+  display: flex;
+}
+.user-page{
+  display: flex;
+}
+.calendar{
+  text-align: center;
+  margin:auto;
+  border: 2px solid green;
+}
+.sideBar{
+  border-right: 2px solid green;
+  height: 700px;
+  width: max-content;
+}

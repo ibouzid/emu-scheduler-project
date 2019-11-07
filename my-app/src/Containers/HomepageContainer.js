@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import User from "../User"
+import UserContainer from "../Containers/UserContainer"
 import HomePageComponent from "../Components/HomePageComponent";
 import {BrowserRouter as Router,Route} from "react-router-dom";
 import RegisterContainer from "../Containers/RegisterContainer";
@@ -44,13 +44,11 @@ function HomepageContainer(){
             />)}}
             />
             <Route path="/register" exact component={RegisterContainer}/>
-            <Route path="/user" exact render={()=>{return(<User
+            <Route path="/user" exact render={()=>{return(<UserContainer
                 userName={userName}
                 password={password}
                 userInfo={userInfo}
                 loggedIn={loggedIn}
-                handleChange={handleChange}
-                handleClick={handleClick}
             />)}}/>
 
         </Router>
