@@ -1,3 +1,7 @@
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~js-datepicker/dist/datepicker.min.css';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -27,8 +31,11 @@ code {
   display: grid;
 }
 .appointment-button{
-  margin:auto;
+  margin-left: 25px;
+  font-size: 15px;
   display: flex;
+  background-color: green;
+  color: white;
 }
 .user-page{
   display: flex;
@@ -42,4 +49,12 @@ code {
   border-right: 2px solid green;
   height: 700px;
   width: max-content;
+}
+.facePic{
+  height: 200px;
+  margin: auto;
+}
+.appointment-inputs{
+  display: table-caption;
+  padding-left: 25px;
 }
