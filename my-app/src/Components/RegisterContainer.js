@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import RegisterComponent from "../Components/RegisterComponent";
+import CourseOptionComponent from "./CourseOptionComponent";
+import {Link} from "react-router-dom";
 
 function RegisterContainer(){
 
@@ -63,13 +64,52 @@ function RegisterContainer(){
         setStatus(!isStudent)
     }
     return(
-        <RegisterComponent
-        isStudent={isStudent}
-        handleChange ={handleChange}
-        handleRadioChange={handleRadioChange}
-        handleSubmit={handleSubmit}
-        courses={courses}
-        />
+        <form onSubmit={handleSubmit}>
+            <label> First Name:
+                <input name ="firstName" placeholder="First Name..." onChange={handleChange}/>
+            </label>
+            <br/>
+            <label> Last Name:
+                <input name="lastName" placeholder="Last Name..." onChange={handleChange}/>
+            </label>
+            <br/>
+            <label> Password:
+                <input name="password" placeholder="Password..." onChange={handleChange}/>
+            </label>
+            <br/>
+            <label> Email:
+                <input name="email" placeholder="Email..." onChange={handleChange}/>
+            </label>
+            <br/>
+            <label> Student:
+                <input type="radio" name="status" value="student" checked={isStudent === true} onChange={handleRadioChange}/>
+            </label>
+            <label> Tutor:
+                <input type="radio" name="status" value="tutor"  checked={isStudent === false} onChange={handleRadioChange}/>
+            </label>
+            <br/>
+            {(isStudent) ? <div>
+                <label> Courses
+                    <select name="courses" multiple={true} onChange={handleChange}>
+                        <CourseOptionComponent data ={courses}/>
+                    </select></label>
+                <br/>
+                <label> Status:
+                    <select name="schoolStatus" onChange={handleChange}>
+                        <option name="freshman"> Freshman</option>
+                        <option name="sophmore"> Sophmore</option>
+                        <option name="junior"> Junior</option>
+                        <option name="senior"> Senior</option>
+                    </select>
+                </label>
+                <br/></div> : <br/> }
+            <Link to="/">
+                <button type="submit" onClick={handleSubmit}>Submit</button>
+            </Link>
+            <Link to="/">
+                <button>Cancel</button>
+            </Link>
+        </form>
     )
 
 
