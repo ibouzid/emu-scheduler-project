@@ -20,13 +20,13 @@ function UserContainer(props) {
         };
 
         if(typeof(Number(day))!== "number" || day.length !== 2){
-            alert("incorrect input " + day + " for day. Please input day in two digits...i.e 07")
+            alert("incorrect input " + day + " for day. Please input day in two digits...")
         }
         if(typeof(Number(month))!== "number" || month.length !== 2){
-            alert("incorrect input " + month + " for month. Please input month in two digits...i.e 07")
+            alert("incorrect input " + month + " for month. Please input month in two digits...")
         }
         if(typeof(Number(year))!== "number" || year.length !== 4){
-            alert("incorrect input " + year + " for year. Please input year in four digits...i.e 2019")
+            alert("incorrect input " + year + " for year. Please input year in four digits...")
         }
         if(typeof(Number(day))=== "number" && typeof(Number(month))=== "number" && typeof(Number(year))=== "number"
             && day.length === 2 && month.length === 2 && year.length === 4){

@@ -58,3 +58,22 @@ code {
   display: table-caption;
   padding-left: 25px;
 }
+.register-input{
+  margin:40px;
+}
+.register-input-button{
+  margin:5px;
+}
+.register-courses{
+  display: flex;
+}
+button {
+  color: #444444;
+  background: #F3F3F3;
+  border: 1px #DADADA solid;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 9pt;
+  outline: none;
+}

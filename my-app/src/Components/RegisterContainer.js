@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import CourseOptionComponent from "./CourseOptionComponent";
 import {Link} from "react-router-dom";
+import NavBarComponent from "./NavBarComponent";
 
 function RegisterContainer(){
 
@@ -64,33 +65,45 @@ function RegisterContainer(){
         setStatus(!isStudent)
     }
     return(
+        <div>
+            <NavBarComponent/>
         <form onSubmit={handleSubmit}>
+            <div className="register-input">
             <label> First Name:
                 <input name ="firstName" placeholder="First Name..." onChange={handleChange}/>
             </label>
-            <br/>
+            </div>
+
+            <div className="register-input">
             <label> Last Name:
                 <input name="lastName" placeholder="Last Name..." onChange={handleChange}/>
             </label>
-            <br/>
+            </div>
+
+            <div className="register-input">
             <label> Password:
                 <input name="password" placeholder="Password..." onChange={handleChange}/>
             </label>
-            <br/>
+            </div>
+
+            <div className="register-input">
             <label> Email:
                 <input name="email" placeholder="Email..." onChange={handleChange}/>
             </label>
-            <br/>
+            </div>
+
+            <div className="register-input">
             <label> Student:
                 <input type="radio" name="status" value="student" checked={isStudent === true} onChange={handleRadioChange}/>
             </label>
+
             <label> Tutor:
                 <input type="radio" name="status" value="tutor"  checked={isStudent === false} onChange={handleRadioChange}/>
             </label>
-            <br/>
-            {(isStudent) ? <div>
+            </div>
+            {(isStudent) ? <div className="register-input">
                 <label> Courses
-                    <select name="courses" multiple={true} onChange={handleChange}>
+                    <select className="register-courses" name="courses" multiple={true} onChange={handleChange}>
                         <CourseOptionComponent data ={courses}/>
                     </select></label>
                 <br/>
@@ -102,14 +115,19 @@ function RegisterContainer(){
                         <option name="senior"> Senior</option>
                     </select>
                 </label>
-                <br/></div> : <br/> }
+
+            </div> : <br/> }
+
+            <div className="register-input">
             <Link to="/">
-                <button type="submit" onClick={handleSubmit}>Submit</button>
+                <button className="register-input-button" type="submit" onClick={handleSubmit}>Submit</button>
             </Link>
             <Link to="/">
                 <button>Cancel</button>
             </Link>
+            </div>
         </form>
+        </div>
     )
 
 
