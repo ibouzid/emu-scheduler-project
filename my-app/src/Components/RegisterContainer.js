@@ -30,18 +30,17 @@ function RegisterContainer(){
 
 
         };
-        console.log(JSON.stringify(student));
-        event.preventDefault();
         fetch("http://localhost:5000/students", {
-            method: 'post',
+            method: 'POST',
             body: JSON.stringify(student),
             headers : {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
         }).then(response=>response.json())
-            .then(data=>console.log(data));
-
+            .then(data=>console.log(data))
+            .catch(err=>console.log(err));
+    alert("Registration Successful!")
     }
     function handleChange(event) {
         if (event.target.name === "firstName") {
@@ -108,8 +107,9 @@ function RegisterContainer(){
                     </select></label>
                 <br/>
                 <label> Status:
-                    <select name="schoolStatus" onChange={handleChange}>
-                        <option name="freshman"> Freshman</option>
+                    <select name="schoolStatus" placeholder="" onChange={handleChange}>
+                        <option value="none" selected={true}> Select Status</option>
+                        <option name="freshman" > Freshman</option>
                         <option name="sophmore"> Sophmore</option>
                         <option name="junior"> Junior</option>
                         <option name="senior"> Senior</option>
