@@ -36,6 +36,17 @@ function UserContainer(props) {
             document.getElementById("month").value  = "";
             document.getElementById("year").value = "";
             document.getElementById("time").value = "";
+
+            fetch("http://localhost:5000/events", {
+                method: 'POST',
+                body: JSON.stringify({...event, studentId:props.userInfo.filter(item=> item.email ==  props.email)[0].studentId}),
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            }).then(response=>response.json())
+                .then(data=>console.log(data))
+                .catch(err=>console.log(err));
         }
 
     }
