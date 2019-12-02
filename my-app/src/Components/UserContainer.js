@@ -30,7 +30,7 @@ function UserContainer(props) {
         }
         if(typeof(Number(day))=== "number" && typeof(Number(month))=== "number" && typeof(Number(year))=== "number"
             && day.length === 2 && month.length === 2 && year.length === 4){
-            setEvents([...events, event]);
+            setEvents(prevState=> [...prevState,  event]);
             alert("Appointment Succesfully Added on " + date);
             document.getElementById("day").value = "";
             document.getElementById("month").value  = "";
@@ -80,7 +80,7 @@ function UserContainer(props) {
                         <FullCalendar
                             defaultView="dayGridMonth"
                             plugins={[ dayGridPlugin ]}
-                            events ={props.events}
+                            events ={events}
 
                         />
 

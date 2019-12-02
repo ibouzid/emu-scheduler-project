@@ -56,22 +56,24 @@ function StartingPageComponent(){
                 <div>
                     <NavBarComponent/>
                     <div className="outerBox">
-
+                        <div className="register-input">
                         <label> Email: </label>
                         <input type="text" name="email" placeholder="enter a valid email..." onChange={handleChange}/>
-                        <br/>
+                        </div>
 
+                        <div  className="register-input">
                         <label> Password: </label>
                         <input type="password" name="password" placeholder="enter your password" onChange={handleChange}/>
-                        <br/>
+                        </div>
 
+                        <div  className="register-input">
                         <Link to={"/user"}>
                             <button onClick={handleClick}> Login </button>
                         </Link>
                         <Link to="/register">
                             <button>register</button>
                         </Link>
-
+                        </div>
                     </div>
                 </div>
             )}}
