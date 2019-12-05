@@ -16,10 +16,10 @@ code {
     monospace;
 }
 .outerBox{
-  width: 300px;
-  padding:100px;
-  margin: auto auto auto 500px;
-  background-color: aliceblue;
+  width:50%;
+  padding:10%;
+  margin: auto;
+  background-color: forestgreen;
 }
 .Nav{
   border-bottom: 2px solid green;
@@ -40,13 +40,7 @@ code {
 .user-page{
   display: flex;
 }
-.calendar{
-  text-align: center;
-  margin:auto;
-  border: 2px solid green;
-}
 .sideBar{
-  border-right: 2px solid green;
   height: 700px;
   width: max-content;
 }
@@ -57,12 +51,18 @@ code {
 .appointment-inputs{
   display: table-caption;
   padding-left: 25px;
+
 }
-.register-input{
-  margin:40px;
+.homepage-input-labels{
+  display: flex;
+  color:white;
 }
-.register-input-button{
+.homepage-input{
+  margin:15px;
+}
+.homepage-input-button{
   margin:5px;
+  color:green;
 }
 .register-courses{
   display: flex;

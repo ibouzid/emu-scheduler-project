@@ -3,7 +3,7 @@ import CourseOptionComponent from "./CourseOptionComponent";
 import {Link} from "react-router-dom";
 import NavBarComponent from "./NavBarComponent";
 
-function RegisterContainer(){
+function RegisterComponent(){
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -11,36 +11,39 @@ function RegisterContainer(){
     const [schoolStatus, setSchoolStatus]  = useState("");
     const [password, setPassword] = useState("false");
     const [isStudent, setStatus] = useState(true);
-    const [studentCourses, setStudentCourses] = useState([])
     const [courses, setCourses] = useState([])
+    const [studentCourses, setStudentCourses] = useState([])
 
     useEffect(()=> {fetch("http://localhost:5000/courses")
         .then(response => response.json())
         .then(data => setCourses(data.data.map(item=>({name:item.name}))))}, []);
 
+
+
     function handleSubmit(event) {
-        let student = {
+        let user = {
             email: email,
             password:password,
             firstName: firstName,
             lastName: lastName,
-            isStudent: (isStudent)?"student":"tutor",
+            isStudent: isStudent,
             studentCourses: studentCourses,
             status: schoolStatus
 
-
         };
-        fetch("http://localhost:5000/students", {
-            method: 'POST',
-            body: JSON.stringify(student),
-            headers : {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }).then(response=>response.json())
-            .then(data=>console.log(data))
-            .catch(err=>console.log(err));
-    alert("Registration Successful!")
+            fetch("http://localhost:5000/students", {
+                method: 'POST',
+                body: JSON.stringify(user),
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            }).then(response=>response.json())
+                .then(data=>console.log(data))
+                .catch(err=>console.log(err));
+            alert("Student Registration Successful!")
+
+
     }
     function handleChange(event) {
         if (event.target.name === "firstName") {
@@ -55,7 +58,11 @@ function RegisterContainer(){
         if (event.target.name === "email") {
             setEmail(event.target.value)
         }
-
+        if(event.target.name === "courses") {
+            let courseArray = [...event.target.options]
+            let newArray = courseArray.filter(item => item.selected).map(item=>{return{name:item.value}})
+            setStudentCourses(newArray)
+        }
         if(event.target.name === "schoolStatus"){
             setSchoolStatus(event.target.value)
         }
@@ -132,4 +139,4 @@ function RegisterContainer(){
 
 
 }
-export default RegisterContainer
+export default RegisterComponent
