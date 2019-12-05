@@ -35,7 +35,7 @@ function UserComponent(props) {
 
         }
 
-    },[]);
+    },[events]);
 
     function handleClick() {
         var day = document.getElementById("day").value;
