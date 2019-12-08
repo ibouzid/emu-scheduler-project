@@ -80,6 +80,7 @@ function UserComponent(props) {
 
     }
     function handleChange(event) {
+        console.log(event.target)
         if(event.target.name==="tutors"){
             setTutorId(event.target.value)
         }

@@ -71,48 +71,52 @@ function RegisterComponent(){
         setStatus(!isStudent)
     }
     return(
-        <div>
+        <div className="container">
             <NavBarComponent/>
+            <div className="jumbotron">
         <form onSubmit={handleSubmit}>
-            <div className="register-input">
+            <div className="form-group">
             <label> First Name:
-                <input name ="firstName" placeholder="First Name..." onChange={handleChange}/>
+                <input className="form-control" name ="firstName" placeholder="First Name..." onChange={handleChange}/>
             </label>
             </div>
 
-            <div className="register-input">
+            <div className="form-group">
             <label> Last Name:
-                <input name="lastName" placeholder="Last Name..." onChange={handleChange}/>
+                <input className="form-control" name="lastName" placeholder="Last Name..." onChange={handleChange}/>
             </label>
             </div>
 
-            <div className="register-input">
+            <div className="form-group">
             <label> Password:
-                <input name="password" placeholder="Password..." onChange={handleChange}/>
+                <input className="form-control" name="password" placeholder="Password..." onChange={handleChange}/>
             </label>
             </div>
 
-            <div className="register-input">
+            <div className="form-group">
             <label> Email:
-                <input name="email" placeholder="Email..." onChange={handleChange}/>
+                <input className="form-control" name="email" placeholder="Email..." onChange={handleChange}/>
             </label>
             </div>
 
-            <div className="register-input">
+            <div className="form-group">
             <label> Student:
-                <input type="radio" name="status" value="student" checked={isStudent === true} onChange={handleRadioChange}/>
+                <input className="form-control" type="radio" name="status" value="student" checked={isStudent === true} onChange={handleRadioChange}/>
             </label>
 
             <label> Tutor:
-                <input type="radio" name="status" value="tutor"  checked={isStudent === false} onChange={handleRadioChange}/>
+                <input className="form-control" type="radio" name="status" value="tutor"  checked={isStudent === false} onChange={handleRadioChange}/>
             </label>
             </div>
-            {(isStudent) ? <div className="register-input">
-                <label> Courses
-                    <select className="register-courses" name="courses" multiple={true} onChange={handleChange}>
+            {(isStudent) ?
+                <div>
+                    <div className="container">
+                <label className="row"> Courses: </label>
+                    <select className="form-group" name="courses" multiple={true} onChange={handleChange}>
                         <CourseOptionComponent data ={courses}/>
-                    </select></label>
-                <br/>
+                    </select>
+                    </div>
+                    <div>
                 <label> Status:
                     <select name="schoolStatus" placeholder="" onChange={handleChange}>
                         <option value="none" selected={true}> Select Status</option>
@@ -122,8 +126,9 @@ function RegisterComponent(){
                         <option name="senior"> Senior</option>
                     </select>
                 </label>
+                    </div>
 
-            </div> : <br/> }
+            </div> : <></> }
 
             <div className="register-input">
             <Link to="/">
@@ -134,6 +139,7 @@ function RegisterComponent(){
             </Link>
             </div>
         </form>
+            </div>
         </div>
     )
 
